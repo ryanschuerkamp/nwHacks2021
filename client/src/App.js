@@ -13,7 +13,7 @@ class App extends Component {
 			.then(res => res.blob())
 			.then(function(myBlob) {
 				var objectURL = URL.createObjectURL(myBlob);
-				document.querySelector('img').src = objectURL;
+				document.getElementById('wordCloud').src = objectURL;
 			})
 			.catch(err => err);
 	}
@@ -31,9 +31,10 @@ class App extends Component {
 					<Tweet tweetId='1343271342985019393' options={{width: '750'}} className="App-twitter-embed"/>
 					<Tweet tweetId='1340087528838344704' options={{width: '750'}} className="App-twitter-embed"/>
 					<Tweet tweetId='1336491671505268742' options={{width: '750'}} className="App-twitter-embed"/>
-					<img src="" alt=""></img>
-					{this.children}
-					<p className="App-intro">{this.state.apiResponse}</p>
+				</div>
+				<h5 className="App-heading">WORD CLOUD</h5>
+				<div className="App-flex-container">
+					<img src="" id="wordCloud" alt=""></img>
 				</div>
 			</div>
 		);
