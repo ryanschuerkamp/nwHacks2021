@@ -2,6 +2,6 @@
 .DS_Store
 
 # Python things to ignore
-python_modules
-__pycache__
-*.pyc
+# python_modules
+# __pycache__
+# *.pyc
