@@ -8,18 +8,18 @@ class App extends Component {
 		this.state = { apiResponse: ""};
 	}
 
-	callAPI() {
+	getWordCloud() {
 		fetch("http://localhost:8000/word-cloud")
 			.then(res => res.blob())
 			.then(function(myBlob) {
 				var objectURL = URL.createObjectURL(myBlob);
-				document.getElementById('wordCloud').src = objectURL;
+				document.getElementById('Word-cloud').src = objectURL;
 			})
 			.catch(err => err);
 	}
 
 	componentDidMount() {
-		this.callAPI();
+		this.getWordCloud();
 	}
 
 	render() {
@@ -34,7 +34,7 @@ class App extends Component {
 				</div>
 				<h5 className="App-heading">WORD CLOUD</h5>
 				<div className="App-flex-container">
-					<img src="" id="wordCloud" alt=""></img>
+					<img src="" id="Word-cloud" alt=""></img>
 				</div>
 			</div>
 		);
