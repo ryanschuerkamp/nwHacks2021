@@ -8,11 +8,17 @@ class App extends Component {
 		this.state = { apiResponse: ""};
 	}
 
+	
+
 	callAPI() {
-		fetch("http://localhost:8000/testAPI")
-			.then(res => res.text())
-			.then(res => this.setState({ apiResponse: res}))
-			.catch(err => err);
+		
+		var outside
+		fetch("http://localhost:8000/wordCloud" )
+		.then(response => response.blob())
+		.then(images => {
+				// Then create a local URL for that image and print it 
+				outside = URL.createObjectURL(images)
+				console.log(outside)})
 	}
 
 	componentDidMount() {

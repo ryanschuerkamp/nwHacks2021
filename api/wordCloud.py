@@ -29,7 +29,7 @@ wordcloud = WordCloud(stopwords=stopwords, max_font_size=75, max_words=100, back
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
-plt.show()
+#plt.show()
 
 
-wordcloud.to_file("img/wordcloud.png")
+wordcloud.to_file("wordcloud.png")
