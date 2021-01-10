@@ -10,17 +10,17 @@ import matplotlib.pyplot as plt
 
 
 #load in dataframe
-df = pd.read_csv("winemag-data_first150k.csv", index_col=0)
+df = pd.read_csv("Tweet_Text.csv", index_col=0)
 
 
 # Join the text together
-text = " ".join(review for review in df.description)
+text = " ".join(review for review in df.tweet)
 
 # print ("There are {} words in the combination of all review.".format(len(text)))
 
 # create a list of words to be rejected
 stopwords = set(STOPWORDS)
-stopwords.update(["wine", "drink", "finish"])
+stopwords.update(["vaccination", "https", "t", "co", "s", "vaccinations", "going", "will", "le"])
 
 # Create and generate word cloud image:
 # set max font size max number of words and background color
