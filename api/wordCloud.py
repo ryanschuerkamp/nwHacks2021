@@ -20,7 +20,7 @@ text = " ".join(review for review in df.tweet)
 
 # create a list of words to be rejected
 stopwords = set(STOPWORDS)
-stopwords.update(["vaccination", "https", "t", "co", "s", "vaccinations", "going", "will", "le"])
+stopwords.update(["vaccination", "https","don", "t", "la","co", "s",  "getting", "got", "u", "vaccinations", "going", "will", "le", "take", "les", "make", "amp"])
 
 # Create and generate word cloud image:
 # set max font size max number of words and background color
