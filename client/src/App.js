@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { Tweet  } from 'react-twitter-widgets';
 import './css/App.css';
 
 class App extends Component {
@@ -9,9 +9,12 @@ class App extends Component {
 	}
 
 	callAPI() {
-		fetch("http://localhost:8000/testAPI")
-			.then(res => res.text())
-			.then(res => this.setState({ apiResponse: res}))
+		fetch("http://localhost:8000/word-cloud")
+			.then(res => res.blob())
+			.then(function(myBlob) {
+				var objectURL = URL.createObjectURL(myBlob);
+				document.querySelector('img').src = objectURL;
+			})
 			.catch(err => err);
 	}
 
@@ -22,13 +25,16 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<header className="App-header">
-					<h3>APP NAME</h3>
-					<h5>TOP TWEETS</h5>
-					<TwitterTweetEmbed tweetId={'933354946111705097'}/>
+				<h3 className="App-title">COVAX (mis)Information</h3>
+				<h5 className="App-heading">TOP TWEETS</h5>
+				<div className="App-flex-container">
+					<Tweet tweetId='1343271342985019393' options={{width: '750'}} className="App-twitter-embed"/>
+					<Tweet tweetId='1340087528838344704' options={{width: '750'}} className="App-twitter-embed"/>
+					<Tweet tweetId='1336491671505268742' options={{width: '750'}} className="App-twitter-embed"/>
+					<img alt=""></img>
 					{this.children}
 					<p className="App-intro">{this.state.apiResponse}</p>
-				</header>
+				</div>
 			</div>
 		);
 	}
