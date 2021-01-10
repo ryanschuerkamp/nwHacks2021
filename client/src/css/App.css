@@ -4,6 +4,7 @@
 	min-height: 100vh;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	padding-bottom: 2em;
 }
 
 .App-flex-container {
@@ -15,17 +16,17 @@
 
 .App-title { 
 	margin: 0 auto;
-	padding: 1em;
+	padding-top: 1em;
 }
 
 .App-heading {
 	text-align: left;
-	width: 25%;
-	margin: 0 auto;
+	width: 30%;
+	margin: 1em auto 0;
 	min-width: 300px;
 }
 
-.App-link {
+.App-link:hover {
   color: #61dafb;
 }
 
@@ -34,10 +35,34 @@
 	width: 100%;
 }
 
-#Word-cloud {
+.App-para-container {
+	margin: auto;
+	text-align: left;
 	width: 50%;
 	max-width: 550px;
 	min-width: 350px;
+}
+
+.App-para-container > p { 
+	font-size: 14pt;
+	margin: 0 auto 1em;
+}
+
+.App-para-container > div {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.App-visuals {
+	width: 50%;
+	max-width: 550px;
+	min-width: 350px;
+	margin: 0.5em auto 1em;
+}
+
+a {
+	text-decoration: none;
+	color: white;
 }
 
 iframe[title="Twitter Tweet"] {

@@ -9,21 +9,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/word-cloud', function(req, res, next) {
-	// Use child_process.spawn method from  
-	// child_process module and assign it 
-	// to variable spawn 
-
 	let options = { 
-		scriptPath: path.join(__dirname,'../') //If you are having python_test.py script in same folder, then it's optional. 
+		scriptPath: path.join(__dirname,'../') //If .py script in same folder, this is optional. 
 	}; 
 
 	PythonShell.run('wordCloud.py', options, function (err, result){ 
 		if (err) throw err; 
-		// result is an array consisting of messages collected  
-		//during execution of script. 
 		res.sendFile(path.join(__dirname, '../wordcloud.png')); 
 	}); 
+});
 
+router.get('/visuals-themes', function(req, res, next) {
+	let options = { 
+		scriptPath: path.join(__dirname,'../') //If .py script in same folder, this is optional. 
+	}; 
+
+	// PythonShell.run('graphs.py', options, function (err, result){ 
+		// if (err) throw err; 
+		res.sendFile(path.join(__dirname, '../themes.png')); 
+	// }); 
+});
+
+router.get('/visuals-pie', function(req, res, next) {
+	res.sendFile(path.join(__dirname, '../pie.png')); 
 });
 
 module.exports = router;

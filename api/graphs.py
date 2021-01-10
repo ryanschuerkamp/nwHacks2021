@@ -16,7 +16,7 @@ for i, tweet in enumerate(sntwitter.TwitterSearchScraper('Fake vaccinations').ge
     fake_vac_tweets_list.append([tweet.date, tweet.id, tweet.content, tweet.user.username, tweet.replyCount, tweet.retweetCount, tweet.likeCount])
     text_list.append(tweet.content)
 
-    #Create DataFrame
+#Create DataFrame
 fake_vac_df = pd.DataFrame(fake_vac_tweets_list, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'Reply Count', 'Retweet Count', 'Like Count'])
 
 #Convert Text column to lowercase for searching purposes
@@ -59,19 +59,6 @@ fauci_num = fake_vac_df['Text'][fake_vac_df['Text'].apply(lambda str1: fuzzy_mat
 harris_num = fake_vac_df['Text'][fake_vac_df['Text'].apply(lambda str1: fuzzy_match(str1, 'harris'))==True].count()
 pence_num = fake_vac_df['Text'][fake_vac_df['Text'].apply(lambda str1: fuzzy_match(str1, 'pence'))==True].count()
 gates_num = fake_vac_df['Text'][fake_vac_df['Text'].apply(lambda str1: fuzzy_match(str1, 'bill gates'))==True].count()
-
-
-fig = plt.figure()
-ax = fig.add_axes([0,1,2,1])
-ax.set_title('1000 Tweets containing Fake vaccinations Since 12/08/2020')
-ax.set_ylabel('Number of Occurences')
-labels = ['Contains Trump', 'Contains Biden', 'Contains Fauci', 'Contains Harris', 'Contains Pence']
-count_tweets = [trump_num, biden_num, fauci_num, harris_num, pence_num]
-ax.bar(labels,count_tweets)
-#plt.show()
-
-fig.to_file("names.png")
-
 
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 sum = trump_num + biden_num + fauci_num + harris_num + pence_num + gates_num
