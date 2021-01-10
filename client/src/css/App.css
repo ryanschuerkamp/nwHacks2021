@@ -36,5 +36,12 @@
 
 #Word-cloud {
 	width: 50%;
-	min-width: 300px;
+	max-width: 550px;
+	min-width: 350px;
+}
+
+iframe[title="Twitter Tweet"] {
+	width: 50vw !important;
+	max-width: 550px !important;
+	min-width: 350px !important;
 }
