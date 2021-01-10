@@ -23,9 +23,11 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<p className="App-intro">{this.state.apiResponse}</p>
+					<h3>APP NAME</h3>
+					<h5>TOP TWEETS</h5>
 					<TwitterTweetEmbed tweetId={'933354946111705097'}/>
 					{this.children}
+					<p className="App-intro">{this.state.apiResponse}</p>
 				</header>
 			</div>
 		);
