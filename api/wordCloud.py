@@ -16,7 +16,7 @@ df = pd.read_csv("winemag-data_first150k.csv", index_col=0)
 # Join the text together
 text = " ".join(review for review in df.description)
 
-print ("There are {} words in the combination of all review.".format(len(text)))
+# print ("There are {} words in the combination of all review.".format(len(text)))
 
 # create a list of words to be rejected
 stopwords = set(STOPWORDS)
@@ -29,7 +29,7 @@ wordcloud = WordCloud(stopwords=stopwords, max_font_size=75, max_words=100, back
 # Display the generated image:
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
-#plt.show()
+# plt.show()
 
 
 wordcloud.to_file("wordcloud.png")

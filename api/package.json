@@ -17,7 +17,9 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "nopy": "^0.2.7"
+    "nopy": "^0.2.7",
+    "path": "^0.12.7",
+    "python-shell": "^2.0.3"
   },
   "main": "app.js",
   "bin": {
